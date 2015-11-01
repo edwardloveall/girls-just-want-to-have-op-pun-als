@@ -8,10 +8,9 @@
 
 import Foundation
 
-let url = NSURL(string: "http://rhymebrain.com/talk?function=getRhymes&word=magic")
-let request = NSURLRequest(URL: url!)
-let response: AutoreleasingUnsafeMutablePointer<NSURLResponse?> = nil
-let error: NSErrorPointer
-let data = try NSURLConnection.sendSynchronousRequest(request, returningResponse: response) as NSData
-let string = NSString(data: data, encoding: NSUTF8StringEncoding)
-print(string)
+guard
+    let url = NSURL(string: "http://rhymebrain.com/talk?function=getRhymes&word=magic"),
+    let data = NSData(contentsOfURL: url) else { exit(1) }
+
+print(NSString(data: data, encoding: NSUTF8StringEncoding))
+
