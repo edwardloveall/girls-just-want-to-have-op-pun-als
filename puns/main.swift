@@ -10,7 +10,18 @@ import Foundation
 
 guard
     let url = NSURL(string: "http://rhymebrain.com/talk?function=getRhymes&word=magic"),
-    let data = NSData(contentsOfURL: url) else { exit(1) }
+    let data = NSData(contentsOfURL: url),
+    let json = try? NSJSONSerialization.JSONObjectWithData(data, options: []) as? Array<AnyObject>
+    else { exit(1) }
 
-print(NSString(data: data, encoding: NSUTF8StringEncoding))
+var rhymes = [Rhyme]()
 
+if let sickRhymes = json {
+    for rhymeElement in sickRhymes {
+        let rhymeDict = rhymeElement as AnyObject
+        let rhyme: Rhyme = Rhyme.decode(rhymeDict)
+        rhymes.append(rhyme)
+    }
+}
+
+print(rhymes)

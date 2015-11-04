@@ -14,4 +14,19 @@ struct Rhyme {
         score: Int,
         flags: String,
         syllables: String
+
+    static func decode(json: AnyObject) -> Rhyme {
+        guard let word = json["word"] as? String,
+              let freq = json["freq"] as? Int,
+              let score = json["score"] as? Int,
+              let flags = json["flags"] as? String,
+              let syllables = json["syllables"] as? String
+            else { exit(1) }
+
+        return Rhyme(word: word,
+                     freq: freq,
+                     score: score,
+                     flags: flags,
+                     syllables: syllables)
+    }
 }
