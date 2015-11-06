@@ -8,17 +8,14 @@
 
 import Foundation
 
-guard
-    let url = NSURL(string: "http://rhymebrain.com/talk?function=getRhymes&word=magic"),
-    let data = NSData(contentsOfURL: url),
-    let json = try? NSJSONSerialization.JSONObjectWithData(data, options: []) as? Array<AnyObject>
-    else { exit(1) }
+let jsonData = RhymeFetcher(rhyme: "magic").fetch()
+let json = JSONParser.parse(jsonData)
 
 var rhymes = [Rhyme]()
 
 if let sickRhymes = json {
     for rhymeElement in sickRhymes {
-        let rhymeDict = rhymeElement as AnyObject
+        let rhymeDict = rhymeElement
         let rhyme: Rhyme = Rhyme.decode(rhymeDict)
         rhymes.append(rhyme)
     }
