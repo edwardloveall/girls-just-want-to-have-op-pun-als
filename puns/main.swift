@@ -21,4 +21,8 @@ if let sickRhymes = json {
     }
 }
 
-print(rhymes)
+let theSickestRhymes = rhymes.filter({ (rhyme: Rhyme) -> Bool in
+    return rhyme.score >= 300
+})
+
+print(theSickestRhymes)
