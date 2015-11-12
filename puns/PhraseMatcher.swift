@@ -15,10 +15,17 @@ class PhraseMatcher {
         phrases = phraseList.componentsSeparatedByString("\n")
     }
 
-    func containing(word: String) -> [String] {
+    func containing(rhymes: [Rhyme]) -> [String] {
         return phrases.filter({ (phrase: String) in
+            var contained = false
             let words = phrase.componentsSeparatedByString(" ")
-            return words.contains(word)
+            for rhyme in rhymes {
+                if words.contains(rhyme.word) {
+                    contained = true
+                    break
+                }
+            }
+            return contained
         })
     }
 }

@@ -12,7 +12,7 @@ let rhyme = "all"
 let jsonData = RhymeFetcher(rhyme: rhyme).fetch()
 let json = JSONParser.parse(jsonData)
 let phraseList = File.open("~/Documents/Text/wikipedia-idioms.txt")
-let idioms = PhraseMatcher(phraseList: phraseList).containing(rhyme)
 let rhymes = RhymeMatcher(json: json).matches()
+let idioms = PhraseMatcher(phraseList: phraseList).containing(rhymes)
 
 print(idioms)
