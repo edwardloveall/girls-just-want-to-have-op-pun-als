@@ -10,17 +10,15 @@ import Foundation
 
 class PhraseMatcher {
     var phrases: [String]
-    let matchWord: String
 
-    init(phraseList: String, matching: String) {
+    init(phraseList: String) {
         phrases = phraseList.componentsSeparatedByString("\n")
-        matchWord = matching
     }
 
-    func matches() -> [String] {
+    func containing(word: String) -> [String] {
         return phrases.filter({ (phrase: String) in
             let words = phrase.componentsSeparatedByString(" ")
-            return words.contains(matchWord)
+            return words.contains(word)
         })
     }
 }
