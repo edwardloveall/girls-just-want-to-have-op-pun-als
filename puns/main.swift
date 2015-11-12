@@ -8,8 +8,10 @@
 
 import Foundation
 
-let jsonData = RhymeFetcher(rhyme: "magic").fetch()
+let rhyme = "all"
+let jsonData = RhymeFetcher(rhyme: rhyme).fetch()
 let json = JSONParser.parse(jsonData)
+let idioms = File.open("~/Documents/Text/wikipedia-idioms.txt")
 
 var rhymes = [Rhyme]()
 
@@ -25,4 +27,14 @@ let theSickestRhymes = rhymes.filter({ (rhyme: Rhyme) -> Bool in
     return rhyme.score >= 300
 })
 
-print(theSickestRhymes)
+guard let idioms = idioms?.componentsSeparatedByString("\n") else {
+    print("No idioms match your rhyme :(")
+    exit(0)
+}
+
+let matchingIdioms = idioms.filter({ (idiom: String) -> Bool in
+    let words = idiom.componentsSeparatedByString(" ")
+    return words.contains(rhyme)
+})
+
+print(matchingIdioms)
