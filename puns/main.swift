@@ -8,11 +8,22 @@
 
 import Foundation
 
-let rhyme = "all"
+let rhyme = "shit"
 let jsonData = RhymeFetcher(rhyme: rhyme).fetch()
 let json = JSONParser.parse(jsonData)
 let phraseList = File.open("~/Documents/Text/wikipedia-idioms.txt")
 let rhymes = RhymeMatcher(json: json).matches()
 let idioms = PhraseMatcher(phraseList: phraseList).containing(rhymes)
 
-print(idioms)
+let rhymeWords = rhymes.map({ $0.word })
+let wordsForRegex = rhymeWords.joinWithSeparator("|")
+let regex = "\\b\(wordsForRegex)\\b"
+var puns = [String]()
+
+for idiom in idioms {
+    if let range = idiom.rangeOfString(regex, options: .RegularExpressionSearch) {
+        puns.append(idiom.stringByReplacingCharactersInRange(range, withString: rhyme))
+    }
+}
+
+print(puns)
