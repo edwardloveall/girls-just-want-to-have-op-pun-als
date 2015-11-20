@@ -9,11 +9,11 @@
 import Foundation
 
 struct Rhyme {
-    var word: String,
-        freq: Int,
-        score: Int,
-        flags: String,
-        syllables: String
+    let word: String
+    let freq: Int
+    let score: Int
+    let flags: String
+    let syllables: String
 
     static func decode(json: AnyObject) -> Rhyme {
         guard let word = json["word"] as? String,
