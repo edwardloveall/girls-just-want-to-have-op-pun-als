@@ -8,21 +8,17 @@
 
 import Foundation
 
-class Punifier {
+struct Punifier {
     let phrase: String
     let swapWord: String
     let rhymes: [Rhyme]
-    let regex: String
 
-    init(phrase: String, swapWord: String, rhymes: [Rhyme]) {
-        self.phrase = phrase
-        self.swapWord = swapWord
-        self.rhymes = rhymes
-        let rhymeWords = rhymes.map({ $0.word }).joinWithSeparator("|")
-        regex = "\\b\(rhymeWords)\\b"
+    var regex: String {
+        let rhymeWords = rhymes.map { $0.word }.joinWithSeparator("|")
+        return "\\b\(rhymeWords)\\b"
     }
 
-    func pun() -> Pun {
+    var pun: Pun {
         let range = phrase.rangeOfString(regex, options: .RegularExpressionSearch) ?? phrase.startIndex..<phrase.startIndex
         let punPhrase = phrase.stringByReplacingCharactersInRange(range, withString: swapWord)
         return Pun(originalPhrase: phrase, punPhrase: punPhrase)

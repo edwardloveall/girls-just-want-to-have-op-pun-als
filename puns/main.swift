@@ -21,7 +21,7 @@ let phraseList = File.open(phrasePath)
 let phraseMatches = PhraseMatcher(phraseList: phraseList).containing(rhymes)
 var puns = [Pun]()
 for phrase in phraseMatches {
-    puns.append(Punifier(phrase: phrase, swapWord: rhyme, rhymes: rhymes).pun())
+    puns.append(Punifier(phrase: phrase, swapWord: rhyme, rhymes: rhymes).pun)
 }
 
 for pun in puns {
