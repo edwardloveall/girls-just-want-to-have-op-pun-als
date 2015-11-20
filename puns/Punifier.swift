@@ -19,8 +19,8 @@ struct Punifier {
     }
 
     var pun: Pun {
-        let range = phrase.rangeOfString(regex, options: .RegularExpressionSearch) ?? phrase.startIndex..<phrase.startIndex
-        let punPhrase = phrase.stringByReplacingCharactersInRange(range, withString: swapWord)
+        let range = phrase.rangeOfString(regex, options: .RegularExpressionSearch)
+        let punPhrase = range.map { phrase.stringByReplacingCharactersInRange($0, withString: swapWord) } ?? phrase
         return Pun(originalPhrase: phrase, punPhrase: punPhrase)
     }
 }
