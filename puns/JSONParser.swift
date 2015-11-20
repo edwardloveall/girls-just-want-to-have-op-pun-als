@@ -10,13 +10,10 @@ import Foundation
 
 class JSONParser {
     static func parse(data: NSData) -> Array<AnyObject>? {
-        let json: Array<AnyObject>?
-
-        do {
-            json = try NSJSONSerialization.JSONObjectWithData(data, options: []) as? Array<AnyObject>
-        } catch {
-            json = nil
+        if let json = try? NSJSONSerialization.JSONObjectWithData(data, options: []) {
+            return json as? Array<AnyObject>
+        } else {
+            return .None
         }
-        return json
     }
 }
