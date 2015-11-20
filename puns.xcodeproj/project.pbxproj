@@ -84,15 +84,15 @@
 			isa = PBXGroup;
 			children = (
 				39DEAEA81BFEB6F80070C939 /* Extensions */,
-				39E2BBF81BE6687200C80489 /* main.swift */,
-				3970B5CD1BFD20A00001436C /* Punifier.swift */,
-				39DEAEA41BFEA8B30070C939 /* Pun.swift */,
-				39036F3C1BF51FDE005326A7 /* RhymeMatcher.swift */,
+				39036F361BF4D186005326A7 /* File.swift */,
 				39C4B5601BED45ED00D60D88 /* JSONParser.swift */,
+				39E2BBF81BE6687200C80489 /* main.swift */,
+				39036F381BF4E3DE005326A7 /* PhraseMatcher.swift */,
+				39DEAEA41BFEA8B30070C939 /* Pun.swift */,
+				3970B5CD1BFD20A00001436C /* Punifier.swift */,
 				392593F51BE6B1B000AE9CC3 /* Rhyme.swift */,
 				39C4B55E1BED440D00D60D88 /* RhymeFetcher.swift */,
-				39036F361BF4D186005326A7 /* File.swift */,
-				39036F381BF4E3DE005326A7 /* PhraseMatcher.swift */,
+				39036F3C1BF51FDE005326A7 /* RhymeMatcher.swift */,
 			);
 			path = puns;
 			sourceTree = "<group>";
