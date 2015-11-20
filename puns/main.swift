@@ -15,7 +15,9 @@ guard let rhyme = Process.arguments[safe: 1],
 }
 
 let jsonData = RhymeFetcher(rhyme: rhyme).fetch()
-let json = JSONParser.parse(jsonData)
+guard let json = JSONParser.parse(jsonData) else {
+    fatalError("RhymeBrain JSON was not parseable :(")
+}
 let rhymes = RhymeMatcher(json: json).matches()
 let phraseList = File.open(phrasePath)
 let phraseMatches = PhraseMatcher(phraseList: phraseList).containing(rhymes)

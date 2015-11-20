@@ -11,21 +11,13 @@ import Foundation
 class RhymeMatcher {
     var rhymes: [Rhyme]
 
-    init(json: Array<AnyObject>?) {
-        rhymes = [Rhyme]()
-        if let sickRhymes = json {
-            for rhymeElement in sickRhymes {
-                let rhymeDict = rhymeElement
-                let rhyme: Rhyme = Rhyme.decode(rhymeDict)
-                rhymes.append(rhyme)
-            }
-        }
+    init(json: [AnyObject]) {
+        rhymes = json.map { Rhyme.decode($0) }
     }
 
     func matches(minimumScore: Int = 300) -> [Rhyme] {
-        let theSickestRhymes = rhymes.filter({ (rhyme: Rhyme) -> Bool in
+        return rhymes.filter({ rhyme in
             return rhyme.score >= minimumScore
         })
-        return theSickestRhymes
     }
 }
