@@ -16,7 +16,7 @@ class PhraseMatcher {
     }
 
     func containing(rhymes: [Rhyme]) -> [String] {
-        return phrases.filter({ (phrase: String) in
+        return phrases.filter { phrase in
             var contained = false
             let words = phrase.componentsSeparatedByString(" ")
             for rhyme in rhymes {
@@ -26,6 +26,6 @@ class PhraseMatcher {
                 }
             }
             return contained
-        })
+        }
     }
 }
