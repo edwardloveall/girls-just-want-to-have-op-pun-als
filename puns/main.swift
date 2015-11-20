@@ -8,11 +8,16 @@
 
 import Foundation
 
-let rhyme = "heart"
+guard let rhyme = Process.arguments[safe: 1],
+      let phrasePath = Process.arguments[safe: 2] else {
+    print("Usage: puns <word to pun on> <file o' phrases>")
+    exit(1)
+}
+
 let jsonData = RhymeFetcher(rhyme: rhyme).fetch()
 let json = JSONParser.parse(jsonData)
 let rhymes = RhymeMatcher(json: json).matches()
-let phraseList = File.open("~/Documents/Text/wikipedia-idioms.txt")
+let phraseList = File.open(phrasePath)
 let phraseMatches = PhraseMatcher(phraseList: phraseList).containing(rhymes)
 var puns = [Pun]()
 for phrase in phraseMatches {
