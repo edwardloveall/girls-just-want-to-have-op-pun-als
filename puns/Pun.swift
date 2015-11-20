@@ -11,4 +11,8 @@ import Foundation
 struct Pun {
     let originalPhrase: String
     let punPhrase: String
+
+    var display: String {
+        return "\(punPhrase) (pun of \(originalPhrase))"
+    }
 }
