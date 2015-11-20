@@ -13,6 +13,7 @@
 		392593F61BE6B1B000AE9CC3 /* Rhyme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392593F51BE6B1B000AE9CC3 /* Rhyme.swift */; };
 		39C4B55F1BED440D00D60D88 /* RhymeFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C4B55E1BED440D00D60D88 /* RhymeFetcher.swift */; };
 		39C4B5611BED45ED00D60D88 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C4B5601BED45ED00D60D88 /* JSONParser.swift */; };
+		39DEAEA51BFEA8B30070C939 /* Pun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39DEAEA41BFEA8B30070C939 /* Pun.swift */; };
 		39E2BBF91BE6687200C80489 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E2BBF81BE6687200C80489 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		392593F51BE6B1B000AE9CC3 /* Rhyme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rhyme.swift; sourceTree = "<group>"; };
 		39C4B55E1BED440D00D60D88 /* RhymeFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RhymeFetcher.swift; sourceTree = "<group>"; };
 		39C4B5601BED45ED00D60D88 /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
+		39DEAEA41BFEA8B30070C939 /* Pun.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pun.swift; sourceTree = "<group>"; };
 		39E2BBF51BE6687200C80489 /* puns */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = puns; sourceTree = BUILT_PRODUCTS_DIR; };
 		39E2BBF81BE6687200C80489 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				39E2BBF81BE6687200C80489 /* main.swift */,
+				39DEAEA41BFEA8B30070C939 /* Pun.swift */,
 				39036F3C1BF51FDE005326A7 /* RhymeMatcher.swift */,
 				39C4B5601BED45ED00D60D88 /* JSONParser.swift */,
 				392593F51BE6B1B000AE9CC3 /* Rhyme.swift */,
@@ -142,6 +145,7 @@
 				39E2BBF91BE6687200C80489 /* main.swift in Sources */,
 				39036F3D1BF51FDE005326A7 /* RhymeMatcher.swift in Sources */,
 				39C4B5611BED45ED00D60D88 /* JSONParser.swift in Sources */,
+				39DEAEA51BFEA8B30070C939 /* Pun.swift in Sources */,
 				392593F61BE6B1B000AE9CC3 /* Rhyme.swift in Sources */,
 				39036F391BF4E3DE005326A7 /* PhraseMatcher.swift in Sources */,
 			);
